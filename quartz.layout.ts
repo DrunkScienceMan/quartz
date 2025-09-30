@@ -39,6 +39,7 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
+      filterFn: undefined, // apply no filter function, every file and folder will visible
       mapFn: (node) => {
         if (node.isFolder) {
           node.displayName = "📁 " + node.displayName
@@ -46,7 +47,6 @@ export const defaultContentPageLayout: PageLayout = {
           node.displayName = "📄 " + node.displayName
     }
   },
-        filterFn: undefined, // apply no filter function, every file and folder will visible
 }),
   ],
   right: [
