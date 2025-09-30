@@ -46,6 +46,7 @@ export const defaultContentPageLayout: PageLayout = {
           node.displayName = "📄 " + node.displayName
     }
   },
+        filterFn: undefined, // apply no filter function, every file and folder will visible
 }),
   ],
   right: [
