@@ -39,13 +39,26 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      mapFn: (node) => {
-        if (node.isFolder) {
-          node.displayName = "📁 " + node.displayName
-    }   else {
-          node.displayName = "📄 " + node.displayName
+  title: "Explorer",
+  folderClickBehavior: "collapse",
+  folderDefaultState: "collapsed", 
+  useSavedState: true,
+  sortFn: (a, b) => {
+    if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+      return a.displayName.localeCompare(b.displayName, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      })
+    }
+    if (!a.isFolder && b.isFolder) {
+      return 1
+    } else {
+      return -1
     }
   },
+  filterFn: undefined, // This is the key change
+  mapFn: undefined,
+  order: ["filter", "map", "sort"],
 }),
   ],
   right: [
