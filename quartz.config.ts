@@ -72,6 +72,7 @@ const config: QuartzConfig = {
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
+      Plugin.Citations({ bibliographyFile: "./content/bibliography.bib" }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
@@ -80,7 +81,6 @@ const config: QuartzConfig = {
       Plugin.ContentPage(),
       Plugin.FolderPage(),
       Plugin.TagPage(),
-      Plugin.Citations({ bibliographyFile: "./content/bibliography.bib" }),
       Plugin.ContentIndex({
         enableSiteMap: true,
         enableRSS: true,
