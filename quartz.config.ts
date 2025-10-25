@@ -80,7 +80,7 @@ const config: QuartzConfig = {
       Plugin.ContentPage(),
       Plugin.FolderPage(),
       Plugin.TagPage(),
-      Plugin.Citations(),
+      Plugin.Citations({ bibliographyFile: "./content/bibliography.bib" }),
       Plugin.ContentIndex({
         enableSiteMap: true,
         enableRSS: true,
